@@ -4,7 +4,7 @@ class App {
   canvas;
   video_wrapper;
   ctx;
-  MESH_COLOR = "rgb(0,0,255,0.3)";
+  MESH_COLOR = "rgb(255,255,255, 0.3)";
   manLeft;
 
   constructor() {
@@ -57,6 +57,8 @@ class App {
     console.log("model loaded");
 
     this.poseNet.on("pose", (results) => {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
       this.ctx.fillStyle = this.MESH_COLOR;
       this.poses = results;
 
